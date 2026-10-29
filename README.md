@@ -1,56 +1,17 @@
-# Welcome to your Expo app 👋
+# CPRG-303 Mobile Application Development In Class Assignment
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is for the inclass CPRG-303 assignment "Sign-Up Form with Validation"
 
-## Get started
+All code for this assignment was written by Doug Dickens
 
-1. Install dependencies
+Note that for a few things in this assignment I could have added more photos and it would have autofilled in for me (The search tab images). But to save time and file size I decided against adding more then 10
 
-   ```bash
-   npm install
-   ```
+## AI Usage Disclamer
 
-2. Start the app
+Note that because of the nature of *at least my understanding of* markdown files I am not including screenshots of my prompts
 
-   ```bash
-   npx expo start
-   ```
+AI was used for the following in this project:
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Early on when my program wouldn't boot because I installed the wrong sdk version. I used AI to help me try to debug my project into getting it to work and render anything. I was using claude for this and after an hour of trying to get it to work I ended up just uninstalling and reinstalling everything. *this was a nightmare but finally worked*
+- Googles built in AI was used to help my understanding of zod and form hooks by speeding up my researching into said tasks
+- Inline copilot was used to help make some of the comments as well as change/add multiple of the same thing in different lines. ie changing a input name from firstName to FirstName and vise versa
