@@ -49,10 +49,15 @@ export default function Index() {
     const { firstName, lastName, email } = data;
     // Log the data to the console
     console.log("Sign up:", { firstName, lastName, email });
+    
+    // Go to the confirmation screen and give the new page the first name data
+    router.push({ 
+      pathname: "/new-user", 
+      params: { firstName: data.firstName } 
+    });
+    
     // reset the form to its default values
     reset();
-    // Go to the confirmation screen
-    router.push("/new-user");
   };
 
   // Get theme styles basaed on what systems color scheme is active

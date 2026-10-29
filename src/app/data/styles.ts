@@ -65,5 +65,9 @@ export const styles = StyleSheet.create({
   errorText: {
     color: "red",
     marginBottom: 10,
-  }
+  },
+  subtitle: {
+    fontSize: 18,
+    marginBottom: 20,
+  },
 });
