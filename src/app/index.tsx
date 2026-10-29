@@ -125,13 +125,26 @@ export default function Index() {
           )}
 
           {/* Password Input */}
-          {/* <TextInput
-            style={[styles.input, themeStyles.border, themeStyles.primaryText]}
-            placeholder="Password"
-            value={form.Password}
-            secureTextEntry={true}
-            onChangeText={(text) => setForm({ ...form, Password: text })}
-          /> */}
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { value, onChange, onBlur } }) => (
+              <TextInput
+                style={[
+                  styles.input,
+                  themeStyles.border,
+                  themeStyles.primaryText,
+                ]}
+                placeholder="Password"
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+              />
+            )}
+          />
+          {errors.password && (
+            <Text style={styles.errorText}>{errors.password.message}</Text>
+          )}
           {/* Confirm Password Input */}
           {/* <TextInput
             style={[styles.input, themeStyles.border, themeStyles.primaryText]}
