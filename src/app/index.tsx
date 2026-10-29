@@ -44,8 +44,11 @@ export default function Index() {
   });
 
   const submit = async (data: SignupFormOutput) => {
-    // temporary log to check the submitted data later on
-    console.log(data);
+    // Pull out all the non password data from the user input
+    const { firstName, lastName, email } = data;
+
+    // Log the data to the console
+    console.log("Sign up:", { firstName, lastName, email });
     reset();
   };
 
@@ -63,13 +66,16 @@ export default function Index() {
             control={control}
             name="firstName"
             render={({ field: { value, onChange, onBlur } }) => (
+              // Display the first name input field
               <TextInput
                 style={[
                   styles.input,
                   themeStyles.border,
                   themeStyles.primaryText,
                 ]}
+                // Set placeholder value for current field
                 placeholder="First Name"
+                // Bind the input value to the form state and handle changes and blur events
                 value={value}
                 onChangeText={onChange}
                 onBlur={onBlur}
@@ -77,9 +83,7 @@ export default function Index() {
             )}
           />
           {errors.firstName && (
-            <Text style={styles.errorText}>
-              {errors.firstName.message}
-            </Text>
+            <Text style={styles.errorText}>{errors.firstName.message}</Text>
           )}
 
           {/* Last Name Input */}
@@ -87,13 +91,16 @@ export default function Index() {
             control={control}
             name="lastName"
             render={({ field: { value, onChange, onBlur } }) => (
+              // Display the last name input field
               <TextInput
                 style={[
                   styles.input,
                   themeStyles.border,
                   themeStyles.primaryText,
                 ]}
+                // Set placeholder value for current field
                 placeholder="Last Name"
+                // Bind the input value to the form state and handle changes and blur events
                 value={value}
                 onChangeText={onChange}
                 onBlur={onBlur}
@@ -101,9 +108,7 @@ export default function Index() {
             )}
           />
           {errors.lastName && (
-            <Text style={styles.errorText}>
-              {errors.lastName.message}
-            </Text>
+            <Text style={styles.errorText}>{errors.lastName.message}</Text>
           )}
 
           {/* Email Input */}
@@ -111,13 +116,16 @@ export default function Index() {
             control={control}
             name="email"
             render={({ field: { value, onChange, onBlur } }) => (
+              // Display the email input field
               <TextInput
                 style={[
                   styles.input,
                   themeStyles.border,
                   themeStyles.primaryText,
                 ]}
+                // Set placeholder value for current field
                 placeholder="Email"
+                // Bind the input value to the form state and handle changes and blur events
                 value={value}
                 keyboardType="email-address"
                 onChangeText={onChange}
@@ -126,9 +134,7 @@ export default function Index() {
             )}
           />
           {errors.email && (
-            <Text style={styles.errorText}>
-              {errors.email.message}
-            </Text>
+            <Text style={styles.errorText}>{errors.email.message}</Text>
           )}
 
           {/* Password Input */}
@@ -136,13 +142,16 @@ export default function Index() {
             control={control}
             name="password"
             render={({ field: { value, onChange, onBlur } }) => (
+              // Display the password input field
               <TextInput
                 style={[
                   styles.input,
                   themeStyles.border,
                   themeStyles.primaryText,
                 ]}
+                // Set placeholder value for current field
                 placeholder="Password"
+                // Bind the input value to the form state and handle changes and blur events
                 value={value}
                 secureTextEntry={true}
                 onChangeText={onChange}
@@ -151,9 +160,7 @@ export default function Index() {
             )}
           />
           {errors.password && (
-            <Text style={styles.errorText}>
-              {errors.password.message}
-            </Text>
+            <Text style={styles.errorText}>{errors.password.message}</Text>
           )}
 
           {/* Confirm Password Input */}
@@ -161,13 +168,16 @@ export default function Index() {
             control={control}
             name="confirmPassword"
             render={({ field: { value, onChange, onBlur } }) => (
+              // Display the confirm password input field
               <TextInput
                 style={[
                   styles.input,
                   themeStyles.border,
                   themeStyles.primaryText,
                 ]}
+                // Set placeholder value for current field
                 placeholder="Confirm Password"
+                // Bind the input value to the form state and handle changes and blur events
                 value={value}
                 secureTextEntry={true}
                 onChangeText={onChange}
