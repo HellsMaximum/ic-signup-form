@@ -81,12 +81,26 @@ export default function Index() {
           )}
 
           {/* Last Name Input */}
-          {/* <TextInput
-            style={[styles.input, themeStyles.border, themeStyles.primaryText]}
-            placeholder="Last Name"
-            value={form.LastName}
-            onChangeText={(text) => setForm({ ...form, LastName: text })}
-          /> */}
+          <Controller
+            control={control}
+            name="lastName"
+            render={({ field: { value, onChange, onBlur } }) => (
+              <TextInput
+                style={[
+                  styles.input,
+                  themeStyles.border,
+                  themeStyles.primaryText,
+                ]}
+                placeholder="Last Name"
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+              />
+            )}
+          />
+          {errors.lastName && (
+            <Text style={styles.errorText}>{errors.lastName.message}</Text>
+          )}
           {/* Email Input */}
           {/* <TextInput
             style={[styles.input, themeStyles.border, themeStyles.primaryText]}
