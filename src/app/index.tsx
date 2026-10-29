@@ -1,14 +1,9 @@
 import { useState } from "react";
-import { 
-  Text, 
-  View, 
-  StyleSheet, 
-  ScrollView 
-} from "react-native";
+import { ScrollView, StyleSheet, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
-    const [form, setForm] = useState({
+  const [form, setForm] = useState({
     FirstName: "",
     LastName: "",
     Email: "",
@@ -18,14 +13,12 @@ export default function Index() {
 
   return (
     <SafeAreaView>
-      <ScrollView style={styles.container}>
-      <form>
-        <input 
-          type="text" 
-          placeholder="First Name" 
-          value={form.FirstName} 
+      <ScrollView>
+        <TextInput
+          style={styles.input}
+          placeholder="First Name"
+          value={form.FirstName}
         />
-      </form>
       </ScrollView>
     </SafeAreaView>
   );
@@ -36,5 +29,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  input: {
+    width: "80%",
+    height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
+    marginBottom: 10,
+    paddingHorizontal: 10,
   },
 });
