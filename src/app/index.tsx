@@ -18,13 +18,22 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function Index() {
   const {
-    connection,
-    zodSubmit,
+    // variables to handle the form state and submission
+    // control is used to register inputs with react-hook-form
+    // handleSubmit is used to handle form submission
+    // reset is used to reset the form to its default values
+    // errors holds the validation errors for each field
+    // isSubmitting indicates if the form is currently being submitted
+    control,
+    handleSubmit,
     reset,
     formState: { errors, isSubmitting },
   } = useForm<SignupFormInput, unknown, SignupFormOutput>({
+    // Use Zod schema for validation
     resolver: zodResolver(signupSchema),
+    // make it validate on touch rather than on change
     mode: "onTouched",
+    // Set default values for the form fields
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -32,6 +41,12 @@ export default function Index() {
       password: "",
       confirmPassword: "",
     },
+  });
+
+  const submit = handleSubmit((data) => {
+    // temporary log to check the submitted data later on
+    console.log(data);
+    reset();
   });
 
   // Get theme styles basaed on what systems color scheme is active
@@ -81,7 +96,7 @@ export default function Index() {
             onChangeText={(text) => setForm({ ...form, ConfirmPassword: text })}
           />
           {/* Sign Up Button */}
-          <Pressable style={[styles.button, themeStyles.button]}>
+          <Pressable style={[styles.button, themeStyles.button]} onPress={submit}>
             <Text style={themeStyles.primaryText}>Sign Up</Text>
           </Pressable>
         </View>
