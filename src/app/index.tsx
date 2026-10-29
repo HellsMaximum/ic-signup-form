@@ -101,14 +101,29 @@ export default function Index() {
           {errors.lastName && (
             <Text style={styles.errorText}>{errors.lastName.message}</Text>
           )}
+
           {/* Email Input */}
-          {/* <TextInput
-            style={[styles.input, themeStyles.border, themeStyles.primaryText]}
-            placeholder="Email"
-            value={form.Email}
-            keyboardType="email-address"
-            onChangeText={(text) => setForm({ ...form, Email: text })}
-          /> */}
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { value, onChange, onBlur } }) => (
+              <TextInput
+                style={[
+                  styles.input,
+                  themeStyles.border,
+                  themeStyles.primaryText,
+                ]}
+                placeholder="Email"
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+              />
+            )}
+          />
+          {errors.email && (
+            <Text style={styles.errorText}>{errors.email.message}</Text>
+          )}
+
           {/* Password Input */}
           {/* <TextInput
             style={[styles.input, themeStyles.border, themeStyles.primaryText]}
