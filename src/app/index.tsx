@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Pressable, ScrollView, TextInput, useColorScheme, View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles, getThemeStyles } from "./data/styles";
+import { signupSchema, SignupFormInput, SignupFormOutput } from "../schemas/signup"
 
 export default function Index() {
   // State for the form fields

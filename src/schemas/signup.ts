@@ -46,3 +46,9 @@ export const signupSchema = z
     message: "Passwords must match.",
     path: ["confirmPassword"],
   });
+
+  // input and output types for the sign up form
+  // input holds the fields data while typing
+  export type SignupFormInput = z.input<typeof signupSchema>;
+  // output represents the validated and parsed form data
+  export type SignupFormOutput = z.output<typeof signupSchema>;
