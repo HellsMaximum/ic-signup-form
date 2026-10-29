@@ -1,26 +1,45 @@
-import { useState } from "react";
-import { Pressable, ScrollView, TextInput, useColorScheme, View, Text } from "react-native";
+import {
+  Pressable,
+  ScrollView,
+  TextInput,
+  useColorScheme,
+  View,
+  Text,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles, getThemeStyles } from "./data/styles";
-import { signupSchema, SignupFormInput, SignupFormOutput } from "../schemas/signup"
+import {
+  signupSchema,
+  SignupFormInput,
+  SignupFormOutput,
+} from "../schemas/signup";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export default function Index() {
-  // State for the form fields
-  const [form, setForm] = useState({
-    FirstName: "",
-    LastName: "",
-    Email: "",
-    Password: "",
-    ConfirmPassword: "",
+  const {
+    connection,
+    zodSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<SignupFormInput, unknown, SignupFormOutput>({
+    resolver: zodResolver(signupSchema),
+    mode: "onTouched",
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
   });
 
   // Get theme styles basaed on what systems color scheme is active
   const themeStyles = getThemeStyles(useColorScheme() === "dark");
-  
+
   return (
     <SafeAreaView style={[styles.rootContainer, themeStyles.background]}>
       <ScrollView style={[styles.rootContainer, themeStyles.background]}>
-
         <View style={styles.container}>
           <Text style={[styles.title, themeStyles.primaryText]}>Sign Up</Text>
           {/* First Name Input */}
@@ -66,7 +85,6 @@ export default function Index() {
             <Text style={themeStyles.primaryText}>Sign Up</Text>
           </Pressable>
         </View>
-        
       </ScrollView>
     </SafeAreaView>
   );
