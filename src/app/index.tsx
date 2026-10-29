@@ -115,6 +115,7 @@ export default function Index() {
                 ]}
                 placeholder="Email"
                 value={value}
+                keyboardType="email-address"
                 onChangeText={onChange}
                 onBlur={onBlur}
               />
@@ -137,6 +138,7 @@ export default function Index() {
                 ]}
                 placeholder="Password"
                 value={value}
+                secureTextEntry={true}
                 onChangeText={onChange}
                 onBlur={onBlur}
               />
@@ -145,7 +147,7 @@ export default function Index() {
           {errors.password && (
             <Text style={styles.errorText}>{errors.password.message}</Text>
           )}
-          
+
           {/* Confirm Password Input */}
           <Controller
             control={control}
@@ -159,6 +161,7 @@ export default function Index() {
                 ]}
                 placeholder="Confirm Password"
                 value={value}
+                secureTextEntry={true}
                 onChangeText={onChange}
                 onBlur={onBlur}
               />
