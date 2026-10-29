@@ -57,14 +57,18 @@ export default function Index() {
       <ScrollView style={[styles.rootContainer, themeStyles.background]}>
         <View style={styles.container}>
           <Text style={[styles.title, themeStyles.primaryText]}>Sign Up</Text>
-          
+
           {/* First Name Input */}
           <Controller
             control={control}
             name="firstName"
             render={({ field: { value, onChange, onBlur } }) => (
               <TextInput
-                style={[styles.input, themeStyles.border, themeStyles.primaryText]}
+                style={[
+                  styles.input,
+                  themeStyles.border,
+                  themeStyles.primaryText,
+                ]}
                 placeholder="First Name"
                 value={value}
                 onChangeText={onChange}
@@ -72,6 +76,9 @@ export default function Index() {
               />
             )}
           />
+          {errors.firstName && (
+            <Text style={styles.errorText}>{errors.firstName.message}</Text>
+          )}
 
           {/* Last Name Input */}
           {/* <TextInput
@@ -105,7 +112,10 @@ export default function Index() {
             onChangeText={(text) => setForm({ ...form, ConfirmPassword: text })}
           /> */}
           {/* Sign Up Button */}
-          <Pressable style={[styles.button, themeStyles.button]} onPress={handleSubmit(submit)}>
+          <Pressable
+            style={[styles.button, themeStyles.button]}
+            onPress={handleSubmit(submit)}
+          >
             <Text style={themeStyles.primaryText}>Sign Up</Text>
           </Pressable>
         </View>
