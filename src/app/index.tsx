@@ -12,35 +12,35 @@ export default function Index() {
   });
 
   return (
-    <SafeAreaView>
-      <ScrollView>
-        <View style={styles.container}>
+    <SafeAreaView style={styles.RootContainer}>
+      <ScrollView style={styles.RootContainer}>
+        <View style={styles.Container}>
           <TextInput
-            style={styles.input}
+            style={styles.Input}
             placeholder="First Name"
             value={form.FirstName}
             onChangeText={(text) => setForm({ ...form, FirstName: text })}
           />
           <TextInput
-            style={styles.input}
+            style={styles.Input}
             placeholder="Last Name"
             value={form.LastName}
             onChangeText={(text) => setForm({ ...form, LastName: text })}
           />
           <TextInput
-            style={styles.input}
+            style={styles.Input}
             placeholder="Email"
             value={form.Email}
             onChangeText={(text) => setForm({ ...form, Email: text })}
           />
           <TextInput
-            style={styles.input}
+            style={styles.Input}
             placeholder="Password"
             value={form.Password}
             onChangeText={(text) => setForm({ ...form, Password: text })}
           />
           <TextInput
-            style={styles.input}
+            style={styles.Input}
             placeholder="Confirm Password"
             value={form.ConfirmPassword}
             onChangeText={(text) => setForm({ ...form, ConfirmPassword: text })}
@@ -52,12 +52,15 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  RootContainer: {
+    flex: 1,
+  },
+  Container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
-  input: {
+  Input: {
     width: "80%",
     height: 40,
     borderColor: "gray",
