@@ -19,6 +19,7 @@ export default function Index() {
       <ScrollView style={[styles.rootContainer, themeStyles.background]}>
 
         <View style={styles.container}>
+          <Text style={[styles.title, themeStyles.primaryText]}>Sign Up</Text>
           <TextInput
             style={[styles.input, themeStyles.border, themeStyles.primaryText]}
             placeholder="First Name"
@@ -35,18 +36,21 @@ export default function Index() {
             style={[styles.input, themeStyles.border, themeStyles.primaryText]}
             placeholder="Email"
             value={form.Email}
+            keyboardType="email-address"
             onChangeText={(text) => setForm({ ...form, Email: text })}
           />
           <TextInput
             style={[styles.input, themeStyles.border, themeStyles.primaryText]}
             placeholder="Password"
             value={form.Password}
+            secureTextEntry={true}
             onChangeText={(text) => setForm({ ...form, Password: text })}
           />
           <TextInput
             style={[styles.input, themeStyles.border, themeStyles.primaryText]}
             placeholder="Confirm Password"
             value={form.ConfirmPassword}
+            secureTextEntry={true}
             onChangeText={(text) => setForm({ ...form, ConfirmPassword: text })}
           />
           <Pressable style={[styles.button, themeStyles.button]}>

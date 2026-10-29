@@ -40,6 +40,11 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
   input: {
     width: "80%",
     height: 40,
@@ -47,6 +52,7 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
     marginBottom: 10,
     paddingHorizontal: 10,
+    fontSize: 16,
   },
   button: {
     width: "50%",
