@@ -32,19 +32,28 @@ export function getThemeStyles(isDark: boolean) {
 }
 
 export const styles = StyleSheet.create({
-  RootContainer: {
+  rootContainer: {
     flex: 1,
   },
-  Container: {
+  container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
-  Input: {
+  input: {
     width: "80%",
     height: 40,
-    borderWidth: 1,
+    borderRadius: 15,
+    borderWidth: 2,
     marginBottom: 10,
     paddingHorizontal: 10,
   },
+  button: {
+    width: "50%",
+    height: 40,
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10,
+  }
 });
