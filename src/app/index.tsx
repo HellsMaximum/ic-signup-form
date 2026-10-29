@@ -145,14 +145,29 @@ export default function Index() {
           {errors.password && (
             <Text style={styles.errorText}>{errors.password.message}</Text>
           )}
+          
           {/* Confirm Password Input */}
-          {/* <TextInput
-            style={[styles.input, themeStyles.border, themeStyles.primaryText]}
-            placeholder="Confirm Password"
-            value={form.ConfirmPassword}
-            secureTextEntry={true}
-            onChangeText={(text) => setForm({ ...form, ConfirmPassword: text })}
-          /> */}
+          <Controller
+            control={control}
+            name="confirmPassword"
+            render={({ field: { value, onChange, onBlur } }) => (
+              <TextInput
+                style={[
+                  styles.input,
+                  themeStyles.border,
+                  themeStyles.primaryText,
+                ]}
+                placeholder="Confirm Password"
+                value={value}
+                onChangeText={onChange}
+                onBlur={onBlur}
+              />
+            )}
+          />
+          {errors.confirmPassword && (
+            <Text style={styles.errorText}>{errors.confirmPassword.message}</Text>
+          )}
+
           {/* Sign Up Button */}
           <Pressable
             style={[styles.button, themeStyles.button]}
