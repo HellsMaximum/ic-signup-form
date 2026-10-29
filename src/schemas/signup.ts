@@ -23,3 +23,26 @@ const password = z.string()
   .trim()
   // Check if the password is at least 8 characters
   .min(8, "Password must be at least 8 characters.");
+
+const confirmPassword = z.string()
+  // Trim whitespace before validating
+  .trim()
+  // Check if the confirm password is not empty
+  .min(1, "Confirm password is required.");
+
+// Schema for validating the entire sign up form
+// Exported for use in validating the sign up form
+export const signupSchema = z
+  // Define what goes into the sign up form object
+  .object({
+    firstName: name("First name"),
+    lastName: name("Last name"),
+    email: email,
+    password: password,
+    confirmPassword: confirmPassword,
+  })
+  // Ensure that the password and confirm password fields match
+  .refine((matching) => matching.password === matching.confirmPassword, {
+    message: "Passwords must match.",
+    path: ["confirmPassword"],
+  });
