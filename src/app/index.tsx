@@ -1,10 +1,33 @@
-import { Text, View, StyleSheet } from "react-native";
+import { useState } from "react";
+import { 
+  Text, 
+  View, 
+  StyleSheet, 
+  ScrollView 
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
+    const [form, setForm] = useState({
+    FirstName: "",
+    LastName: "",
+    Email: "",
+    Password: "",
+    ConfirmPassword: "",
+  });
+
   return (
-    <View style={styles.container}>
-      <Text>Edit src/app/index.tsx to edit this screen.</Text>
-    </View>
+    <SafeAreaView>
+      <ScrollView style={styles.container}>
+      <form>
+        <input 
+          type="text" 
+          placeholder="First Name" 
+          value={form.FirstName} 
+        />
+      </form>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
