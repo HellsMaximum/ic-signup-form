@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { ScrollView, StyleSheet, TextInput, View } from "react-native";
+import { ScrollView, TextInput, useColorScheme, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { styles, getThemeStyles } from "./data/styles";
 
 export default function Index() {
   const [form, setForm] = useState({
@@ -11,6 +12,8 @@ export default function Index() {
     ConfirmPassword: "",
   });
 
+  const themeStyles = getThemeStyles(useColorScheme() === "dark");
+  
   return (
     <SafeAreaView style={styles.RootContainer}>
       <ScrollView style={styles.RootContainer}>
@@ -50,22 +53,3 @@ export default function Index() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  RootContainer: {
-    flex: 1,
-  },
-  Container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  Input: {
-    width: "80%",
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-});
