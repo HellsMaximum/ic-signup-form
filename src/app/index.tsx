@@ -1,20 +1,21 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { router } from "expo-router";
+import { Controller, useForm } from "react-hook-form";
 import {
   Pressable,
   ScrollView,
+  Text,
   TextInput,
   useColorScheme,
   View,
-  Text,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { styles, getThemeStyles } from "./data/styles";
 import {
-  signupSchema,
   SignupFormInput,
   SignupFormOutput,
+  signupSchema,
 } from "../schemas/signup";
-import { Controller, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { getThemeStyles, styles } from "./data/styles";
 
 export default function Index() {
   const {
@@ -46,10 +47,12 @@ export default function Index() {
   const submit = async (data: SignupFormOutput) => {
     // Pull out all the non password data from the user input
     const { firstName, lastName, email } = data;
-
     // Log the data to the console
     console.log("Sign up:", { firstName, lastName, email });
+    // reset the form to its default values
     reset();
+    // Go to the confirmation screen
+    router.push("/new-user");
   };
 
   // Get theme styles basaed on what systems color scheme is active
