@@ -77,7 +77,9 @@ export default function Index() {
             )}
           />
           {errors.firstName && (
-            <Text style={styles.errorText}>{errors.firstName.message}</Text>
+            <Text style={styles.errorText}>
+              {errors.firstName.message}
+            </Text>
           )}
 
           {/* Last Name Input */}
@@ -99,7 +101,9 @@ export default function Index() {
             )}
           />
           {errors.lastName && (
-            <Text style={styles.errorText}>{errors.lastName.message}</Text>
+            <Text style={styles.errorText}>
+              {errors.lastName.message}
+            </Text>
           )}
 
           {/* Email Input */}
@@ -122,7 +126,9 @@ export default function Index() {
             )}
           />
           {errors.email && (
-            <Text style={styles.errorText}>{errors.email.message}</Text>
+            <Text style={styles.errorText}>
+              {errors.email.message}
+            </Text>
           )}
 
           {/* Password Input */}
@@ -145,7 +151,9 @@ export default function Index() {
             )}
           />
           {errors.password && (
-            <Text style={styles.errorText}>{errors.password.message}</Text>
+            <Text style={styles.errorText}>
+              {errors.password.message}
+            </Text>
           )}
 
           {/* Confirm Password Input */}
@@ -168,13 +176,16 @@ export default function Index() {
             )}
           />
           {errors.confirmPassword && (
-            <Text style={styles.errorText}>{errors.confirmPassword.message}</Text>
+            <Text style={styles.errorText}>
+              {errors.confirmPassword.message}
+            </Text>
           )}
 
           {/* Sign Up Button */}
           <Pressable
             style={[styles.button, themeStyles.button]}
-            onPress={handleSubmit(submit)}
+            onPress={() => handleSubmit(submit)()}
+            disabled={isSubmitting}
           >
             <Text style={themeStyles.primaryText}>Sign Up</Text>
           </Pressable>
